@@ -3,184 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BhashaPul Privacy Policy</title>
+    <title>BhashaPul - Privacy Policy</title>
     <style>
+        /* CSS Styles */
         :root {
-            --text-color: #000000;
+            --primary-color: #6750A4;
+            --secondary-color: #B69DF8;
             --background-color: #ffffff;
-            --accent-color: #1976D2;
-            --section-bg: #f5f5f5;
-            --divider-color: #e0e0e0;
+            --text-color: #1A1A1A;
+            --light-gray: #f5f5f5;
+            --border-color: #e0e0e0;
+            --section-padding: 20px;
+            --border-radius: 8px;
         }
-        
-        [data-theme="dark"] {
-            --text-color: #ffffff;
-            --background-color: #121212;
-            --accent-color: #90CAF9;
-            --section-bg: #1e1e1e;
-            --divider-color: #333333;
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #B69DF8;
+                --secondary-color: #6750A4;
+                --background-color: #121212;
+                --text-color: #f5f5f5;
+                --light-gray: #1e1e1e;
+                --border-color: #333333;
+            }
         }
-        
+
         body {
-            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+            font-family: 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
             color: var(--text-color);
             background-color: var(--background-color);
-            padding: 16px;
-            margin: 0;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 16px;
+            padding: 20px;
         }
-        
+
         header {
             text-align: center;
-            margin-bottom: 32px;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
         }
-        
-        h1 {
-            color: var(--accent-color);
-            margin-bottom: 8px;
+
+        header h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.2em;
         }
-        
+
+        header p {
+            margin: 10px 0 0;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
         .last-updated {
-            font-style: italic;
+            font-size: 0.85em;
+            margin-top: 10px;
             color: var(--text-color);
             opacity: 0.7;
         }
-        
-        .section {
-            background-color: var(--section-bg);
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        section {
+            margin-bottom: 30px;
+            padding: var(--section-padding);
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
-        
+
         h2 {
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--divider-color);
-            padding-bottom: 8px;
+            color: var(--primary-color);
             margin-top: 0;
+            font-size: 1.5em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            display: inline-block;
         }
-        
-        p {
-            margin-bottom: 16px;
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
-        
-        .contact-info {
-            margin-top: 8px;
+
+        p, ul, ol {
+            margin-bottom: 15px;
         }
-        
-        .theme-toggle {
-            position: fixed;
-            top: 16px;
-            right: 16px;
-            background-color: var(--accent-color);
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: rgba(182, 157, 248, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+            margin: 20px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
             color: white;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            font-size: 24px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .collapsible {
             cursor: pointer;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        
-        @media (max-width: 600px) {
-            .section {
-                padding: 12px;
+
+        .collapsible::after {
+            content: '\002B';
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .active::after {
+            content: '\2212';
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .show-content {
+            max-height: 1000px;
+        }
+
+        .toggle-container {
+            display: flex;
+            justify-content: flex-end;
+            margin: 10px 0;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            section {
+                padding: 15px;
             }
             
             h1 {
-                font-size: 24px;
+                font-size: 1.8em;
             }
             
             h2 {
-                font-size: 18px;
+                font-size: 1.3em;
             }
         }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle">🌓</button>
-    
     <div class="container">
+        <div class="toggle-container">
+            <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+                🌓
+            </button>
+        </div>
+        
         <header>
             <h1>BhashaPul Privacy Policy</h1>
-            <p class="last-updated">Last Updated: June 6, 2025</p>
+            <p>Our commitment to protecting your privacy</p>
+            <div class="last-updated">Last Updated: <span id="lastUpdated">May 15, 2024</span></div>
         </header>
-        
-        <div class="section">
-            <h2>1. Information We Collect</h2>
-            <p>BhashaPul respects your privacy and is committed to protecting it through our compliance with this policy. We do not collect any personal information or data from you when you use our app. The app only requires microphone access for voice input translation, but this data is processed locally on your device and is not transmitted or stored by us.</p>
-        </div>
-        
-        <div class="section">
-            <h2>2. How We Use Your Information</h2>
-            <p>Since we do not collect personal information, we do not use your data for any purpose. Your translations and voice inputs are processed locally and are not transmitted to our servers.</p>
-        </div>
-        
-        <div class="section">
-            <h2>3. Data Storage</h2>
-            <p>Your translation history and favorites are stored locally on your device only. You can delete these at any time through the app interface. We do not have access to this data, nor is it backed up on our servers.</p>
-        </div>
-        
-        <div class="section">
-            <h2>4. Third-Party Services</h2>
-            <p>Our app uses RapidAPI translation service to provide translation functionality. When you translate text, the text may be sent to this service's servers for translation. We use only reputable services and do not share your data with any other third parties. All translation services are used solely for the purpose of providing translation functionality.</p>
-        </div>
-        
-        <div class="section">
-            <h2>5. Children's Privacy</h2>
-            <p>Our Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13.</p>
-        </div>
-        
-        <div class="section">
-            <h2>6. Changes to This Privacy Policy</h2>
-            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date.</p>
-        </div>
-        
-        <div class="section">
-            <h2>7. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-            <div class="contact-info">
-                <p>Email: cosomestudio@gmail.com<br>
-                Website: www.pradeepoli.com.np</p>
+
+        <section>
+            <h2>Introduction</h2>
+            <p>
+                Welcome to BhashaPul ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience when using our translation application.
+            </p>
+            <p>
+                This Privacy Policy explains our practices regarding the collection, use, and disclosure of information through the BhashaPul mobile application (the "App"). By using our App, you consent to the practices described in this policy.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="collapsible">Information We Collect</h2>
+            <div class="content">
+                <p>We collect the following types of information:</p>
+                
+                <h3>Information You Provide</h3>
+                <ul>
+                    <li><strong>Text for Translation:</strong> The text you input for translation.</li>
+                    <li><strong>Voice Recordings:</strong> When you use voice input features, we temporarily process your voice recordings to convert speech to text.</li>
+                    <li><strong>Language Preferences:</strong> Your selected source and target languages.</li>
+                </ul>
+                
+                <h3>Information Collected Automatically</h3>
+                <ul>
+                    <li><strong>Translation History:</strong> Records of your translations stored locally on your device.</li>
+                    <li><strong>App Usage Data:</strong> How you interact with the app, such as which features you use most frequently.</li>
+                    <li><strong>Device Information:</strong> Basic information about your device (model, OS version) to optimize app performance.</li>
+                </ul>
+                
+                <div class="highlight">
+                    <p><strong>Note:</strong> All translation history and favorites are stored locally on your device. We do not maintain a copy of your translation history on our servers.</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section>
+            <h2 class="collapsible">How We Use Your Information</h2>
+            <div class="content">
+                <p>We use the collected information for the following purposes:</p>
+                <ul>
+                    <li><strong>Providing Translation Services:</strong> Processing your text and speech inputs to deliver translation results.</li>
+                    <li><strong>Improving Our Services:</strong> Analyzing usage patterns to enhance app functionality and user experience.</li>
+                    <li><strong>Technical Support:</strong> Addressing technical issues and providing customer support.</li>
+                    <li><strong>Service Personalization:</strong> Remembering your preferences and tailoring the service to your needs.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="collapsible">Third-Party Services</h2>
+            <div class="content">
+                <p>BhashaPul uses certain third-party services to provide translation capabilities:</p>
+                
+                <h3>Translation Services</h3>
+                <p>We may use third-party translation APIs to process your translation requests. When utilizing these services, the text you submit for translation is transmitted to these providers.</p>
+                
+                <h3>Text-to-Speech and Speech Recognition</h3>
+                <p>For text-to-speech and speech recognition functionality, we may use:</p>
+                <ul>
+                    <li>Your device's built-in text-to-speech engines</li>
+                    <li>Google's Speech Recognition services</li>
+                    <li>VoiceRSS API (as a fallback text-to-speech service)</li>
+                </ul>
+                
+                <p>When you use speech features, audio data may be processed by these services to convert between speech and text.</p>
+                
+                <div class="highlight">
+                    <p><strong>Important:</strong> When network text-to-speech services are used as a fallback, the text to be spoken is transmitted to these services. We only use these services when device-based TTS is not available or does not support your selected language.</p>
+                </div>
+                
+                <h3>Analytics</h3>
+                <p>We use analytics tools to understand app usage patterns. These analytics are anonymized and do not contain your personal data or the content of your translations.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="collapsible">Data Storage and Security</h2>
+            <div class="content">
+                <p>We prioritize the security of your information:</p>
+                <ul>
+                    <li><strong>Local Storage:</strong> Your translation history and favorites are stored locally on your device.</li>
+                    <li><strong>Temporary Processing:</strong> Voice recordings are temporarily processed and are not permanently stored.</li>
+                    <li><strong>Transmission Security:</strong> When data is transmitted to translation services, we use industry-standard encryption protocols.</li>
+                </ul>
+                
+                <p>While we implement safeguards to protect your information, no internet transmission or electronic storage system is completely secure. We cannot guarantee the absolute security of your data.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="collapsible">Your Choices and Rights</h2>
+            <div class="content">
+                <p>You have control over your data:</p>
+                <ul>
+                    <li><strong>Manage Translation History:</strong> You can view, delete individual entries, or clear your entire translation history from within the app.</li>
+                    <li><strong>Voice Input:</strong> Voice input features are optional and can be disabled.</li>
+                    <li><strong>App Permissions:</strong> You can modify app permissions (like microphone access) through your device settings.</li>
+                </ul>
+                
+                <h3>Your Rights</h3>
+                <p>Depending on your location, you may have certain rights regarding your personal data, including:</p>
+                <ul>
+                    <li>The right to access your data</li>
+                    <li>The right to correct inaccuracies</li>
+                    <li>The right to deletion of your data</li>
+                    <li>The right to restrict processing</li>
+                    <li>The right to data portability</li>
+                    <li>The right to object to processing</li>
+                </ul>
+                
+                <p>To exercise these rights, please contact us using the information provided at the end of this policy.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="collapsible">Children's Privacy</h2>
+            <div class="content">
+                <p>BhashaPul is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will take steps to delete such information as soon as possible.</p>
+                
+                <p>If you are a parent or guardian and believe we may have collected information about your child, please contact us using the information provided at the end of this policy.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="collapsible">Changes to This Privacy Policy</h2>
+            <div class="content">
+                <p>We may update this Privacy Policy from time to time to reflect changes to our practices or for other operational, legal, or regulatory reasons.</p>
+                
+                <p>If we make material changes to this policy, we will provide notice through the App or by other means. We encourage you to review this Privacy Policy periodically to stay informed about our data practices.</p>
+                
+                <p>The "Last Updated" date at the top of this page indicates when this Privacy Policy was last revised.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="collapsible">Contact Us</h2>
+            <div class="content">
+                <p>If you have any questions, concerns, or feedback about this Privacy Policy or our data practices, please contact us at:</p>
+                
+                <p>
+                    <strong>Email:</strong> <a href="mailto:privacy@bhashapul.com">privacy@bhashapul.com</a><br>
+                    <strong>Address:</strong> BhashaPul Team, 123 Translation Street, Language City, 12345
+                </p>
+                
+                <p>We will respond to your inquiry as soon as reasonably possible.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; <span id="currentYear">2024</span> BhashaPul. All rights reserved.</p>
+        </footer>
     </div>
-    
+
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        
-        // Check for saved theme preference or use device preference
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        // Set initial theme
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            body.setAttribute('data-theme', 'dark');
-        }
-        
-        // Toggle theme on button click
-        themeToggle.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
+        // JavaScript functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Initialize collapsible sections
+            const collapsibles = document.getElementsByClassName('collapsible');
+            for (let i = 0; i < collapsibles.length; i++) {
+                collapsibles[i].addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('show-content');
+                });
+                
+                // Show the first section by default
+                if (i === 0) {
+                    collapsibles[i].classList.add('active');
+                    collapsibles[i].nextElementSibling.classList.add('show-content');
+                }
             }
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // Check for saved theme preference or use system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (savedTheme === null && prefersDarkScheme.matches)) {
+                document.body.classList.add('dark-theme');
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
+                
+                // Save theme preference
+                if (document.body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
     </script>
 </body>
