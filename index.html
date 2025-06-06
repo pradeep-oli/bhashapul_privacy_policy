@@ -3,282 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BhashaPul - Privacy Policy</title>
+    <title>BhashaPul Privacy Policy</title>
     <style>
         :root {
-            --primary-color: #0066CC;
-            --primary-container: #E0EEFF;
-            --surface-color: #F8F9FA;
-            --on-surface: #1D1B20;
-            --on-primary-container: #001E36;
-            --background-color: #FFFFFF;
+            --primary-color: #2196F3;
+            --primary-light: #BBDEFB;
+            --primary-dark: #1976D2;
+            --text-color: #333;
+            --text-light: #757575;
+            --background-color: #fff;
+            --card-background: #f5f7fa;
+            --border-radius: 8px;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark mode variables */
+        .dark-theme {
+            --primary-color: #64B5F6;
+            --primary-light: #1E3A5F;
+            --primary-dark: #90CAF9;
+            --text-color: #f0f0f0;
+            --text-light: #bdbdbd;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--on-surface);
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 20px;
         }
 
-        .top-app-bar {
-            display: flex;
-            align-items: center;
-            height: 64px;
-            padding: 0 16px;
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 10;
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease;
         }
 
-        .back-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            margin-right: 8px;
-            color: var(--primary-color);
-            transition: background-color 0.2s;
-        }
-
-        .back-button:hover {
-            background-color: rgba(0, 102, 204, 0.08);
-        }
-
-        .back-button-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        .title {
-            font-size: 20px;
-            font-weight: 500;
-            color: var(--primary-color);
-            flex-grow: 1;
-        }
-
-        .content-container {
-            padding: 16px 0 32px 0;
-        }
-
-        .policy-card {
-            background-color: var(--surface-color);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            margin-bottom: 24px;
-        }
-
-        .policy-header {
-            color: var(--primary-color);
+        .logo {
             font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
         }
 
-        .policy-date {
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .last-updated {
+            color: var(--text-light);
             font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            color: var(--on-surface);
-            opacity: 0.7;
         }
 
         .policy-section {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, background-color 0.3s ease;
         }
 
-        .policy-section:last-child {
-            margin-bottom: 0;
+        .policy-section:hover {
+            transform: translateY(-5px);
         }
 
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 20px;
+            border-bottom: 1px solid var(--primary-light);
+            padding-bottom: 8px;
         }
 
-        .section-content {
+        p {
+            margin-bottom: 15px;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: var(--text-light);
             font-size: 14px;
-            text-align: justify;
-            line-height: 1.7;
         }
 
-        /* Dark mode */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary-color: #9ECAFF;
-                --primary-container: #00497D;
-                --surface-color: #1D1D1D;
-                --on-surface: #E3E3E3;
-                --on-primary-container: #D1E4FF;
-                --background-color: #121212;
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
             }
-
-            .top-app-bar {
-                background-color: rgba(18, 18, 18, 0.9);
+            
+            header, .policy-section {
+                padding: 15px;
             }
-
-            .policy-card {
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            
+            h1 {
+                font-size: 24px;
             }
-        }
-
-        /* Mobile responsiveness */
-        @media screen and (max-width: 600px) {
-            .policy-card {
-                padding: 16px;
-                border-radius: 12px;
+            
+            h2 {
+                font-size: 18px;
             }
-
-            .policy-header {
-                font-size: 20px;
-            }
-
-            .content-container {
-                padding: 8px 0 24px 0;
+            
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
             }
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-in {
-            animation: fadeIn 0.5s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Staggered animation delay for sections */
-        .policy-section:nth-child(1) { animation-delay: 0.1s; }
-        .policy-section:nth-child(2) { animation-delay: 0.2s; }
-        .policy-section:nth-child(3) { animation-delay: 0.3s; }
-        .policy-section:nth-child(4) { animation-delay: 0.4s; }
-        .policy-section:nth-child(5) { animation-delay: 0.5s; }
-        .policy-section:nth-child(6) { animation-delay: 0.6s; }
-        .policy-section:nth-child(7) { animation-delay: 0.7s; }
     </style>
 </head>
 <body>
-    <div class="top-app-bar">
-        <div class="title">Privacy Policy</div>
-    </div>
-
     <div class="container">
-        <div class="content-container">
-            <div class="policy-card">
-                <div class="policy-header">BhashaPul Privacy Policy</div>
-                <div class="policy-date">Last Updated: June 04, 2025</div>
-
-                <div class="policy-section animate-in">
-                    <div class="section-title">1. Information We Collect</div>
-                    <div class="section-content">
-                        BhashaPul respects your privacy and is committed to protecting it through our compliance with this policy. We do not collect any personal information or data from you when you use our app. The app only requires microphone access for voice input translation but the data is processed locally on your device and is not transmitted or stored by us.
-                    </div>
-                </div>
-
-                <div class="policy-section animate-in">
-                    <div class="section-title">2. How We Use Your Information</div>
-                    <div class="section-content">
-                        Since we do not collect personal information, we do not use your data for any purpose. Your translations and voice inputs are processed locally and are not transmitted to our servers.
-                    </div>
-                </div>
-
-                <div class="policy-section animate-in">
-                    <div class="section-title">3. Data Storage</div>
-                    <div class="section-content">
-                        Your translation history and favorites are stored locally on your device only. You can delete these at any time through the app interface. We do not have access to this data, nor is it backed up on our servers.
-                    </div>
-                </div>
-
-                <div class="policy-section animate-in">
-                    <div class="section-title">4. Third-Party Services</div>
-                    <div class="section-content">
-                        Our app uses Rapid API translation services to provide translation functionality. When you translate text, the text is sent to Rapid's servers for translation. Please refer to Rapid's Privacy Policy to understand how they handle this data.
-                    </div>
-                </div>
-
-                <div class="policy-section animate-in">
-                    <div class="section-title">5. Children's Privacy</div>
-                    <div class="section-content">
-                        Our Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13.
-                    </div>
-                </div>
-
-                <div class="policy-section animate-in">
-                    <div class="section-title">6. Changes to This Privacy Policy</div>
-                    <div class="section-content">
-                        We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date.
-                    </div>
-                </div>
-
-                <div class="policy-section animate-in">
-                    <div class="section-title">7. Contact Us</div>
-                    <div class="section-content">
-                        If you have any questions about this Privacy Policy, please contact us at:<br><br>
-                        Email: cosomestudio@gmail.com<br>
-                        Website: www.pradeepoli.com.np
-                    </div>
-                </div>
+        <header>
+            <div class="logo">
+                <i class="icon">🔒</i>
             </div>
+            <h1>BhashaPul Privacy Policy</h1>
+            <p class="last-updated">Last Updated: June 6, 2025</p>
+        </header>
+
+        <div class="policy-section">
+            <h2>1. Information We Collect</h2>
+            <p>BhashaPul respects your privacy and is committed to protecting it through our compliance with this policy. We do not collect any personal information or data from you when you use our app. The app only requires microphone access for voice input translation and camera access for text recognition from images, but these data are processed locally on your device and are not transmitted or stored by us.</p>
         </div>
+
+        <div class="policy-section">
+            <h2>2. How We Use Your Information</h2>
+            <p>Since we do not collect personal information, we do not use your data for any purpose. Your translations and voice inputs are processed locally and are not transmitted to our servers.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>3. Data Storage</h2>
+            <p>Your translation history and favorites are stored locally on your device only. You can delete these at any time through the app interface. We do not have access to this data, nor is it backed up on our servers.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>4. Third-Party Services</h2>
+            <p>Our app uses LibreTranslate and other open-source translation services to provide translation functionality. When you translate text, the text may be sent to these services' servers for translation. We use only reputable services and do not share your data with any other third parties. All translation services are used solely for the purpose of providing translation functionality.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>5. Children's Privacy</h2>
+            <p>Our Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>6. Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>7. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+            <p>Email: cosomestudio@gmail.com<br>Website: www.pradeepoli.com.np</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 BhashaPul. All rights reserved.</p>
+        </footer>
     </div>
+
+    <button class="theme-toggle" id="themeToggle">🌓</button>
 
     <script>
-        // Detect scroll position to add shadow to app bar
-        window.addEventListener('scroll', function() {
-            const appBar = document.querySelector('.top-app-bar');
-            if (window.scrollY > 10) {
-                appBar.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.12)';
-            } else {
-                appBar.style.boxShadow = 'none';
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const themeToggle = document.getElementById('themeToggle');
+            
+            // Function to set theme
+            function setTheme(isDark) {
+                if (isDark) {
+                    body.classList.add('dark-theme');
+                    themeToggle.textContent = '☀️';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-theme');
+                    themeToggle.textContent = '🌙';
+                    localStorage.setItem('theme', 'light');
+                }
             }
-        });
-
-        // Function to check if element is in viewport
-        function isInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        // Apply animations when sections come into view
-        function animateSectionsInView() {
-            const sections = document.querySelectorAll('.policy-section');
-            sections.forEach(section => {
-                if (isInViewport(section) && !section.classList.contains('visible')) {
-                    section.classList.add('visible');
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme === 'dark');
+            } else {
+                // Use system preference as default
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                setTheme(prefersDark);
+            }
+            
+            // Toggle theme when button is clicked
+            themeToggle.addEventListener('click', function() {
+                const isDarkNow = body.classList.contains('dark-theme');
+                setTheme(!isDarkNow);
+            });
+            
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (localStorage.getItem('theme') === null) {
+                    setTheme(e.matches);
                 }
             });
-        }
-
-        // Initial check on load
-        document.addEventListener('DOMContentLoaded', animateSectionsInView);
-        
-        // Check on scroll
-        window.addEventListener('scroll', animateSectionsInView);
+            
+            // Add animation to sections when they come into view
+            const sections = document.querySelectorAll('.policy-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease';
+                observer.observe(section);
+            });
+        });
     </script>
 </body>
 </html> 
