@@ -6,141 +6,97 @@
     <title>BhashaPul Privacy Policy</title>
     <style>
         :root {
-            --primary-color: #2196F3;
-            --primary-light: #BBDEFB;
-            --primary-dark: #1976D2;
-            --text-color: #333;
-            --text-light: #757575;
-            --background-color: #fff;
-            --card-background: #f5f7fa;
-            --border-radius: 8px;
-            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --text-color: #000000;
+            --background-color: #ffffff;
+            --accent-color: #1976D2;
+            --section-bg: #f5f5f5;
+            --divider-color: #e0e0e0;
         }
-
-        /* Dark mode variables */
-        .dark-theme {
-            --primary-color: #64B5F6;
-            --primary-light: #1E3A5F;
-            --primary-dark: #90CAF9;
-            --text-color: #f0f0f0;
-            --text-light: #bdbdbd;
+        
+        [data-theme="dark"] {
+            --text-color: #ffffff;
             --background-color: #121212;
-            --card-background: #1e1e1e;
-            --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            --accent-color: #90CAF9;
+            --section-bg: #1e1e1e;
+            --divider-color: #333333;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        
         body {
             font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
-            padding: 20px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 16px;
+            margin: 0;
+            transition: all 0.3s ease;
         }
-
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 16px;
         }
-
+        
         header {
             text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: var(--card-background);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: background-color 0.3s ease;
+            margin-bottom: 32px;
         }
-
-        .logo {
-            font-size: 24px;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
+        
         h1 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 28px;
+            color: var(--accent-color);
+            margin-bottom: 8px;
         }
-
+        
         .last-updated {
-            color: var(--text-light);
-            font-size: 14px;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.7;
         }
-
-        .policy-section {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: var(--card-background);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: transform 0.2s ease, background-color 0.3s ease;
+        
+        .section {
+            background-color: var(--section-bg);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
-        .policy-section:hover {
-            transform: translateY(-5px);
-        }
-
+        
         h2 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 20px;
-            border-bottom: 1px solid var(--primary-light);
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--divider-color);
             padding-bottom: 8px;
+            margin-top: 0;
         }
-
+        
         p {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
-
+        
+        .contact-info {
+            margin-top: 8px;
+        }
+        
         .theme-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: var(--primary-color);
+            top: 16px;
+            right: 16px;
+            background-color: var(--accent-color);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
+            font-size: 24px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            box-shadow: var(--shadow);
-            transition: background-color 0.3s ease;
-            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-
-        .theme-toggle:hover {
-            background-color: var(--primary-dark);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
+        
         @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-            
-            header, .policy-section {
-                padding: 15px;
+            .section {
+                padding: 12px;
             }
             
             h1 {
@@ -150,128 +106,81 @@
             h2 {
                 font-size: 18px;
             }
-            
-            .theme-toggle {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
         }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" id="themeToggle">🌓</button>
+    
     <div class="container">
         <header>
-            <div class="logo">
-                <i class="icon">🔒</i>
-            </div>
             <h1>BhashaPul Privacy Policy</h1>
             <p class="last-updated">Last Updated: June 6, 2025</p>
         </header>
-
-        <div class="policy-section">
+        
+        <div class="section">
             <h2>1. Information We Collect</h2>
-            <p>BhashaPul respects your privacy and is committed to protecting it through our compliance with this policy. We do not collect any personal information or data from you when you use our app. The app only requires microphone access for voice input translation and camera access for text recognition from images, but these data are processed locally on your device and are not transmitted or stored by us.</p>
+            <p>BhashaPul respects your privacy and is committed to protecting it through our compliance with this policy. We do not collect any personal information or data from you when you use our app. The app only requires microphone access for voice input translation, but this data is processed locally on your device and is not transmitted or stored by us.</p>
         </div>
-
-        <div class="policy-section">
+        
+        <div class="section">
             <h2>2. How We Use Your Information</h2>
             <p>Since we do not collect personal information, we do not use your data for any purpose. Your translations and voice inputs are processed locally and are not transmitted to our servers.</p>
         </div>
-
-        <div class="policy-section">
+        
+        <div class="section">
             <h2>3. Data Storage</h2>
             <p>Your translation history and favorites are stored locally on your device only. You can delete these at any time through the app interface. We do not have access to this data, nor is it backed up on our servers.</p>
         </div>
-
-        <div class="policy-section">
+        
+        <div class="section">
             <h2>4. Third-Party Services</h2>
-            <p>Our app uses LibreTranslate and other open-source translation services to provide translation functionality. When you translate text, the text may be sent to these services' servers for translation. We use only reputable services and do not share your data with any other third parties. All translation services are used solely for the purpose of providing translation functionality.</p>
+            <p>Our app uses RapidAPI translation service to provide translation functionality. When you translate text, the text may be sent to this service's servers for translation. We use only reputable services and do not share your data with any other third parties. All translation services are used solely for the purpose of providing translation functionality.</p>
         </div>
-
-        <div class="policy-section">
+        
+        <div class="section">
             <h2>5. Children's Privacy</h2>
             <p>Our Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13.</p>
         </div>
-
-        <div class="policy-section">
+        
+        <div class="section">
             <h2>6. Changes to This Privacy Policy</h2>
             <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date.</p>
         </div>
-
-        <div class="policy-section">
+        
+        <div class="section">
             <h2>7. Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-            <p>Email: cosomestudio@gmail.com<br>Website: www.pradeepoli.com.np</p>
+            <div class="contact-info">
+                <p>Email: cosomestudio@gmail.com<br>
+                Website: www.pradeepoli.com.np</p>
+            </div>
         </div>
-
-        <footer>
-            <p>&copy; 2025 BhashaPul. All rights reserved.</p>
-        </footer>
     </div>
-
-    <button class="theme-toggle" id="themeToggle">🌓</button>
-
+    
     <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            const body = document.body;
-            const themeToggle = document.getElementById('themeToggle');
-            
-            // Function to set theme
-            function setTheme(isDark) {
-                if (isDark) {
-                    body.classList.add('dark-theme');
-                    themeToggle.textContent = '☀️';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    body.classList.remove('dark-theme');
-                    themeToggle.textContent = '🌙';
-                    localStorage.setItem('theme', 'light');
-                }
-            }
-            
-            // Check for saved theme preference
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                setTheme(savedTheme === 'dark');
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or use device preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Set initial theme
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            body.setAttribute('data-theme', 'dark');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
             } else {
-                // Use system preference as default
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                setTheme(prefersDark);
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
             }
-            
-            // Toggle theme when button is clicked
-            themeToggle.addEventListener('click', function() {
-                const isDarkNow = body.classList.contains('dark-theme');
-                setTheme(!isDarkNow);
-            });
-            
-            // Listen for system theme changes
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-                if (localStorage.getItem('theme') === null) {
-                    setTheme(e.matches);
-                }
-            });
-            
-            // Add animation to sections when they come into view
-            const sections = document.querySelectorAll('.policy-section');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            sections.forEach(section => {
-                section.style.opacity = 0;
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease';
-                observer.observe(section);
-            });
         });
     </script>
 </body>
